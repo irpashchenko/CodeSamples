@@ -1,0 +1,25 @@
+<button (click)="clearChart()">Refresh</button>
+<div class="chunk-selector">
+<span>Chunks number:</span>
+<select [(ngModel)]="chunk" (change)="onChunkSelect()">
+  <option>5</option>
+  <option>10</option>
+  <option>20</option>
+  <option>60</option>
+</select>
+</div>
+<div class="chartWrapper" #chartWrapper>
+  <div class="chartAreaWrapper" >
+    <canvas baseChart #graph="base-chart" height="300" id="myChart"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+  <canvas id="myChartAxis" height="300" width="0"></canvas>
+</div>
+
